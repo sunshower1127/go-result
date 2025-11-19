@@ -65,9 +65,9 @@ fmt.Println(value)
 
 ```typescript
 // go-result (TypeScript)
-const [value, err] = divide(10, 2);
-if (err) {
-  return err(err);
+const [value, err1] = divide(10, 2);
+if (err1) {
+  return err(err1);
 }
 console.log(value);
 ```
@@ -241,8 +241,8 @@ type Result<S, E> = readonly [S, null] | readonly [null, E];
 
 ```typescript
 // Propagate error up the call stack immediately
-const [value, err] = divide(10, 2);
-if (err) return err(err); // Early return on error
+const [value, err1] = divide(10, 2);
+if (err1) return err(err1); // Early return on error
 console.log(value); // Type-safe: value is guaranteed to be number here
 ```
 
@@ -250,9 +250,9 @@ console.log(value); // Type-safe: value is guaranteed to be number here
 
 ```typescript
 // Handle error with custom logic
-const [value, err] = divide(10, 0);
-if (err) {
-  console.error("Division failed:", err); // Log the error
+const [value, err1] = divide(10, 0);
+if (err1) {
+  console.error("Division failed:", err1); // Log the error
   return; // Or throw, or return default value, etc.
 }
 console.log(value);
