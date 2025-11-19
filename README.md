@@ -17,7 +17,7 @@
 **The simplest Result type library for TypeScript.**
 Shorter and more intuitive than Effect.js or neverthrow.
 
-[Installation](#installation) • [Quick Start](#quick-start) • [API](#api) • [Comparison](#comparison-go-result-vs-neverthrow-vs-effectjs)
+[Installation](#installation) • [Quick Start](#quick-start) • [Why Explicit Errors?](#why-explicit-error-handling) • [AI-Friendly](#ai-friendly-design) • [API](#api) • [Comparison](#comparison-go-result-vs-neverthrow-vs-effectjs)
 
 </div>
 
@@ -74,31 +74,136 @@ console.log(value);
 
 Nearly identical syntax and flow!
 
+## Why Explicit Error Handling?
+
+### The Problem with try-catch
+
+Traditional `try-catch` in TypeScript has several issues:
+
+```typescript
+// ❌ Problems with try-catch:
+function divide(a: number, b: number): number {
+  if (b === 0) {
+    throw new Error("division by zero");  // 1. Not visible in type signature
+  }
+  return a / b;
+}
+
+// Caller has no idea this can throw!
+const result = divide(10, 0);  // 2. Easy to forget error handling
+console.log(result);  // 3. Runtime crash
+```
+
+**Issues:**
+1. **Invisible errors**: Function signature doesn't show it can fail
+2. **Easy to forget**: No compiler reminder to handle errors
+3. **Runtime crashes**: Unhandled exceptions crash your app
+4. **Hard to trace**: Exception stack traces can be misleading
+5. **Performance**: Try-catch blocks prevent JS engine optimizations
+
+### Modern Languages Choose Explicit Errors
+
+Many modern languages have moved away from exceptions:
+
+- **Go**: Returns `(value, error)` tuples
+- **Rust**: Uses `Result<T, E>` enum
+- **Swift**: Uses `Result<Success, Failure>`
+- **Zig**: Explicit error unions
+- **OCaml/F#**: `Result` type
+- **Scala**: `Either` and `Try`
+
+**Why?** Explicit error handling makes code more reliable, maintainable, and self-documenting.
+
+### go-result Makes Errors Explicit
+
+```typescript
+// ✅ With go-result:
+function divide(a: number, b: number): Result<number, string> {
+  if (b === 0) {
+    return err("division by zero");  // 1. Error is in the type!
+  }
+  return ok(a / b);
+}
+
+// Type signature forces you to handle errors
+const [value, error] = divide(10, 0);  // 2. Compiler reminds you
+if (error) {
+  console.error(error);  // 3. Explicit handling
+  return;
+}
+console.log(value);  // 4. Safe to use
+```
+
+**Benefits:**
+- ✅ Errors are **visible in types**
+- ✅ Compiler **forces handling**
+- ✅ No runtime crashes
+- ✅ Better performance (no try-catch overhead)
+- ✅ Self-documenting code
+
 ## AI-Friendly Design
 
 go-result is designed to be extremely simple for both humans and AI. LLMs can generate go-result code with minimal hallucination because there's almost no API to remember.
 
+### Perfect for VIBE Coding
+
+When coding with AI assistants (Cursor, GitHub Copilot, Claude, etc.), error handling is often incomplete or incorrect. **go-result solves this.**
+
+Simply give your AI this rule:
+
+> **Rule for AI**: When writing functions that can fail, ALWAYS use `go-result`. Wrap any error-prone operations (file I/O, network calls, parsing, etc.) with this library. Return `Result<Success, Error>` and handle errors with destructuring.
+
+**Example AI prompt:**
+```
+Use go-result library for all error handling.
+Any function that can fail must return Result<T, E>.
+Always destructure with [value, error] and check error first.
+```
+
 ### For AI/LLM Code Generation
 
-When generating TypeScript code with error handling:
+**Rules:**
 
-**Rule**: Use Go-style tuple destructuring with `[value, error]` pattern.
+1. **Import the library**
+   ```typescript
+   import { ok, err, type Result } from "go-result";
+   ```
 
-```typescript
-// 1. Import
-import { ok, err, type Result } from "go-result";
+2. **Wrap ALL error-prone functions**
+   ```typescript
+   // ✅ Any operation that can fail MUST be wrapped
+   function parseJSON(input: string): Result<any, string> {
+     try {
+       return ok(JSON.parse(input));
+     } catch (e) {
+       return err(`Invalid JSON: ${e.message}`);
+     }
+   }
 
-// 2. Define function return type as Result<SuccessType, ErrorType>
-function operation(): Result<number, string> {
-  if (condition) return err("error message");
-  return ok(42);
-}
+   async function fetchUser(id: string): Result<User, string> {
+     try {
+       const response = await fetch(`/api/users/${id}`);
+       if (!response.ok) return err(`HTTP ${response.status}`);
+       const user = await response.json();
+       return ok(user);
+     } catch (e) {
+       return err(`Network error: ${e.message}`);
+     }
+   }
+   ```
 
-// 3. Use with destructuring and early return
-const [value, error] = operation();
-if (error) return err(error); // or handle the error
-// value is type-safe here
-```
+3. **Always use destructuring pattern**
+   ```typescript
+   const [data, error] = parseJSON(input);
+   if (error) return err(error);  // Early return on error
+   // data is type-safe here
+   ```
+
+**Why this works for AI:**
+- Simple pattern that LLMs rarely hallucinate
+- Forces explicit error handling at every step
+- Type system catches missing error checks
+- **Even in VIBE coding, your errors are handled correctly**
 
 That's it. No methods, no pipes, no runtime overhead. Just tuples and if statements.
 

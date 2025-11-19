@@ -1,6 +1,6 @@
 {
   "name": "go-result",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Lightweight Go-style error handling for TypeScript",
   "keywords": [
     "error",
