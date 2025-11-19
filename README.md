@@ -11,7 +11,7 @@
 [![npm version](https://img.shields.io/npm/v/go-result.svg)](https://www.npmjs.com/package/go-result)
 [![npm downloads](https://img.shields.io/npm/dm/go-result.svg)](https://www.npmjs.com/package/go-result)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/go-result)](https://bundlephobia.com/package/go-result)
-[![license](https://img.shields.io/npm/l/go-result.svg)](https://github.com/yourusername/go-result/blob/main/LICENSE)
+[![license](https://img.shields.io/npm/l/go-result.svg)](https://github.com/sunshower1127/go-result/blob/main/LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
 
 **The simplest Result type library for TypeScript.**

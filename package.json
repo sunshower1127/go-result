@@ -1,6 +1,6 @@
 {
   "name": "go-result",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Lightweight Go-style error handling for TypeScript",
   "keywords": [
     "error",
@@ -9,11 +9,15 @@
     "typescript",
     "error-handling"
   ],
-  "author": "",
+  "author": "sunshower1127",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/sunshower1127/go-result.git"
+  },
+  "homepage": "https://github.com/sunshower1127/go-result#readme",
+  "bugs": {
+    "url": "https://github.com/sunshower1127/go-result/issues"
   },
   "type": "module",
   "main": "./dist/cjs/index.js",
