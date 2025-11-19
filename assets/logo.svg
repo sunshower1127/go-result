@@ -1,0 +1,131 @@
+<svg width="400" height="120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="120" fill="#00ADD8"/>
+
+  <!-- Pixel Grid Style -->
+  <defs>
+    <style>
+      .pixel { shape-rendering: crispEdges; }
+      .go { fill: #FFFFFF; }
+      .result { fill: #5DC9E2; }
+      .accent { fill: #CE3262; }
+      .shadow { fill: #007D9C; }
+    </style>
+  </defs>
+
+  <!-- GO text (pixel art style) -->
+  <!-- G -->
+  <rect class="pixel go" x="20" y="25" width="8" height="8"/>
+  <rect class="pixel go" x="28" y="25" width="8" height="8"/>
+  <rect class="pixel go" x="36" y="25" width="8" height="8"/>
+  <rect class="pixel go" x="44" y="25" width="8" height="8"/>
+  <rect class="pixel go" x="20" y="33" width="8" height="8"/>
+  <rect class="pixel go" x="20" y="41" width="8" height="8"/>
+  <rect class="pixel go" x="20" y="49" width="8" height="8"/>
+  <rect class="pixel go" x="20" y="57" width="8" height="8"/>
+  <rect class="pixel go" x="44" y="41" width="8" height="8"/>
+  <rect class="pixel go" x="44" y="49" width="8" height="8"/>
+  <rect class="pixel go" x="44" y="57" width="8" height="8"/>
+  <rect class="pixel go" x="36" y="49" width="8" height="8"/>
+  <rect class="pixel go" x="28" y="65" width="8" height="8"/>
+  <rect class="pixel go" x="36" y="65" width="8" height="8"/>
+  <rect class="pixel go" x="44" y="65" width="8" height="8"/>
+
+  <!-- O -->
+  <rect class="pixel go" x="65" y="25" width="8" height="8"/>
+  <rect class="pixel go" x="73" y="25" width="8" height="8"/>
+  <rect class="pixel go" x="81" y="25" width="8" height="8"/>
+  <rect class="pixel go" x="65" y="33" width="8" height="8"/>
+  <rect class="pixel go" x="89" y="33" width="8" height="8"/>
+  <rect class="pixel go" x="65" y="41" width="8" height="8"/>
+  <rect class="pixel go" x="89" y="41" width="8" height="8"/>
+  <rect class="pixel go" x="65" y="49" width="8" height="8"/>
+  <rect class="pixel go" x="89" y="49" width="8" height="8"/>
+  <rect class="pixel go" x="65" y="57" width="8" height="8"/>
+  <rect class="pixel go" x="89" y="57" width="8" height="8"/>
+  <rect class="pixel go" x="73" y="65" width="8" height="8"/>
+  <rect class="pixel go" x="81" y="65" width="8" height="8"/>
+
+  <!-- Separator dot -->
+  <rect class="pixel accent" x="115" y="41" width="8" height="8"/>
+  <rect class="pixel accent" x="115" y="49" width="8" height="8"/>
+  <rect class="pixel accent" x="123" y="41" width="8" height="8"/>
+  <rect class="pixel accent" x="123" y="49" width="8" height="8"/>
+
+  <!-- RESULT text (smaller, pixel style) -->
+  <!-- R -->
+  <rect class="pixel result" x="150" y="35" width="6" height="6"/>
+  <rect class="pixel result" x="150" y="41" width="6" height="6"/>
+  <rect class="pixel result" x="150" y="47" width="6" height="6"/>
+  <rect class="pixel result" x="150" y="53" width="6" height="6"/>
+  <rect class="pixel result" x="150" y="59" width="6" height="6"/>
+  <rect class="pixel result" x="156" y="35" width="6" height="6"/>
+  <rect class="pixel result" x="162" y="35" width="6" height="6"/>
+  <rect class="pixel result" x="168" y="41" width="6" height="6"/>
+  <rect class="pixel result" x="162" y="47" width="6" height="6"/>
+  <rect class="pixel result" x="168" y="53" width="6" height="6"/>
+  <rect class="pixel result" x="168" y="59" width="6" height="6"/>
+
+  <!-- E -->
+  <rect class="pixel result" x="180" y="35" width="6" height="6"/>
+  <rect class="pixel result" x="186" y="35" width="6" height="6"/>
+  <rect class="pixel result" x="192" y="35" width="6" height="6"/>
+  <rect class="pixel result" x="180" y="41" width="6" height="6"/>
+  <rect class="pixel result" x="180" y="47" width="6" height="6"/>
+  <rect class="pixel result" x="186" y="47" width="6" height="6"/>
+  <rect class="pixel result" x="192" y="47" width="6" height="6"/>
+  <rect class="pixel result" x="180" y="53" width="6" height="6"/>
+  <rect class="pixel result" x="180" y="59" width="6" height="6"/>
+  <rect class="pixel result" x="186" y="59" width="6" height="6"/>
+  <rect class="pixel result" x="192" y="59" width="6" height="6"/>
+
+  <!-- S -->
+  <rect class="pixel result" x="204" y="35" width="6" height="6"/>
+  <rect class="pixel result" x="210" y="35" width="6" height="6"/>
+  <rect class="pixel result" x="216" y="35" width="6" height="6"/>
+  <rect class="pixel result" x="204" y="41" width="6" height="6"/>
+  <rect class="pixel result" x="210" y="47" width="6" height="6"/>
+  <rect class="pixel result" x="216" y="53" width="6" height="6"/>
+  <rect class="pixel result" x="204" y="59" width="6" height="6"/>
+  <rect class="pixel result" x="210" y="59" width="6" height="6"/>
+  <rect class="pixel result" x="216" y="59" width="6" height="6"/>
+
+  <!-- U -->
+  <rect class="pixel result" x="228" y="35" width="6" height="6"/>
+  <rect class="pixel result" x="228" y="41" width="6" height="6"/>
+  <rect class="pixel result" x="228" y="47" width="6" height="6"/>
+  <rect class="pixel result" x="228" y="53" width="6" height="6"/>
+  <rect class="pixel result" x="234" y="59" width="6" height="6"/>
+  <rect class="pixel result" x="240" y="35" width="6" height="6"/>
+  <rect class="pixel result" x="240" y="41" width="6" height="6"/>
+  <rect class="pixel result" x="240" y="47" width="6" height="6"/>
+  <rect class="pixel result" x="240" y="53" width="6" height="6"/>
+
+  <!-- L -->
+  <rect class="pixel result" x="252" y="35" width="6" height="6"/>
+  <rect class="pixel result" x="252" y="41" width="6" height="6"/>
+  <rect class="pixel result" x="252" y="47" width="6" height="6"/>
+  <rect class="pixel result" x="252" y="53" width="6" height="6"/>
+  <rect class="pixel result" x="252" y="59" width="6" height="6"/>
+  <rect class="pixel result" x="258" y="59" width="6" height="6"/>
+  <rect class="pixel result" x="264" y="59" width="6" height="6"/>
+
+  <!-- T -->
+  <rect class="pixel result" x="276" y="35" width="6" height="6"/>
+  <rect class="pixel result" x="282" y="35" width="6" height="6"/>
+  <rect class="pixel result" x="288" y="35" width="6" height="6"/>
+  <rect class="pixel result" x="282" y="41" width="6" height="6"/>
+  <rect class="pixel result" x="282" y="47" width="6" height="6"/>
+  <rect class="pixel result" x="282" y="53" width="6" height="6"/>
+  <rect class="pixel result" x="282" y="59" width="6" height="6"/>
+
+  <!-- Decorative pixels -->
+  <rect class="pixel accent" x="310" y="35" width="4" height="4"/>
+  <rect class="pixel accent" x="315" y="40" width="4" height="4"/>
+  <rect class="pixel accent" x="320" y="35" width="4" height="4"/>
+  <rect class="pixel accent" x="325" y="45" width="4" height="4"/>
+  <rect class="pixel accent" x="330" y="40" width="4" height="4"/>
+
+  <!-- Tagline in small text -->
+  <text x="150" y="85" font-family="monospace" font-size="12" fill="#FFFFFF" font-weight="bold">error handling done right</text>
+</svg>
