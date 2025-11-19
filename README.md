@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/golang-samples/gopher-vector/master/gopher.svg" alt="Go Gopher" width="120"/>
 
-![go-result logo](./assets/logo.svg)
+![Go Result](./assets/logo.svg)
 
 # go-result
 
@@ -22,34 +22,6 @@ Shorter and more intuitive than Effect.js or neverthrow.
 </div>
 
 ---
-
-## AI-Friendly Design
-
-go-result is designed to be extremely simple for both humans and AI. LLMs can generate go-result code with minimal hallucination because there's almost no API to remember.
-
-### For AI/LLM Code Generation
-
-When generating TypeScript code with error handling:
-
-**Rule**: Use Go-style tuple destructuring with `[value, error]` pattern.
-
-```typescript
-// 1. Import
-import { ok, err, type Result } from "go-result";
-
-// 2. Define function return type as Result<SuccessType, ErrorType>
-function operation(): Result<number, string> {
-  if (condition) return err("error message");
-  return ok(42);
-}
-
-// 3. Use with destructuring and early return
-const [value, error] = operation();
-if (error) return err(error);  // or handle the error
-// value is type-safe here
-```
-
-That's it. No methods, no pipes, no runtime overhead. Just tuples and if statements.
 
 ## Installation
 
@@ -101,6 +73,34 @@ console.log(value);
 ```
 
 Nearly identical syntax and flow!
+
+## AI-Friendly Design
+
+go-result is designed to be extremely simple for both humans and AI. LLMs can generate go-result code with minimal hallucination because there's almost no API to remember.
+
+### For AI/LLM Code Generation
+
+When generating TypeScript code with error handling:
+
+**Rule**: Use Go-style tuple destructuring with `[value, error]` pattern.
+
+```typescript
+// 1. Import
+import { ok, err, type Result } from "go-result";
+
+// 2. Define function return type as Result<SuccessType, ErrorType>
+function operation(): Result<number, string> {
+  if (condition) return err("error message");
+  return ok(42);
+}
+
+// 3. Use with destructuring and early return
+const [value, error] = operation();
+if (error) return err(error); // or handle the error
+// value is type-safe here
+```
+
+That's it. No methods, no pipes, no runtime overhead. Just tuples and if statements.
 
 ## API
 
@@ -181,10 +181,7 @@ Same functionality, drastically different verbosity:
 import { Effect } from "effect";
 
 // Define the operation
-const divideEffect = (a: number, b: number) =>
-  b === 0
-    ? Effect.fail("division by zero")
-    : Effect.succeed(a / b);
+const divideEffect = (a: number, b: number) => (b === 0 ? Effect.fail("division by zero") : Effect.succeed(a / b));
 
 // Use it (requires learning catchAll, tap, runSync...)
 const result = divideEffect(10, 2).pipe(
@@ -205,8 +202,7 @@ Effect.runSync(result);
 import { Result, ok, err } from "neverthrow";
 
 // Define the operation
-const divide = (a: number, b: number): Result<number, string> =>
-  b === 0 ? err("division by zero") : ok(a / b);
+const divide = (a: number, b: number): Result<number, string> => (b === 0 ? err("division by zero") : ok(a / b));
 
 // Use it (requires learning isErr, isOk, error, value properties...)
 const result = divide(10, 2);
@@ -224,8 +220,7 @@ console.log(result.value);
 import { ok, err, type Result } from "go-result";
 
 // Define the operation
-const divide = (a: number, b: number): Result<number, string> =>
-  b === 0 ? err("division by zero") : ok(a / b);
+const divide = (a: number, b: number): Result<number, string> => (b === 0 ? err("division by zero") : ok(a / b));
 
 // Use it (just destructuring and if - patterns you already know)
 const [value, error] = divide(10, 2);
@@ -235,6 +230,7 @@ console.log(value);
 ```
 
 **Why go-result wins:**
+
 - ✅ No custom methods to remember (`isErr()`, `isOk()`, `.value`, `.error`)
 - ✅ No pipes or effect systems to learn
 - ✅ No runtime overhead - just plain tuples
